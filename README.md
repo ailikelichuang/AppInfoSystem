@@ -3,3 +3,4 @@ app管理系统
 采用ssm框架前端采用bootstrap框架
 包括app更新发布修改下架 
 采用java1.7的开发环境jar包SQL都在项目里边
+工具是idea 数据库是mysql
