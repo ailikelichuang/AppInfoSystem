@@ -6,9 +6,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="AppInfoSystem" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="Spring3.2.0mybatis3.2" />
-        </element>
+        <element id="directory" name="lib" />
       </element>
       <element id="javaee-facet-resources" facet="AppInfoSystem/web/Web" />
     </root>

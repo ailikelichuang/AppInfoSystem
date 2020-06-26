@@ -32,7 +32,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.39" level="application_server_libraries" />
-    <orderEntry type="library" name="Spring3.2.0mybatis3.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.104" level="application_server_libraries" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
