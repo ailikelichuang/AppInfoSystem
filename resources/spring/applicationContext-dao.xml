@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- 加载db.properties文件中的内容，db.properties文件中key命名要有一定的特殊规则 -->
+    <!-- 导入外部配置文件创建数据源 -->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${mysqlDriver}"></property>
+        <property name="url" value="${mysqlUrl}"></property>
+        <property name="username" value="${mysqlUsername}"></property>
+        <property name="password" value="${mysqlPassword}"></property>
+        <property name="maxActive" value="${mysqlMaxActive}"></property>
+        <property name="maxIdle" value="${mysqlMaxIdle}"></property>
+        <property name="maxWait" value="${mysqlMaxWait}"></property>
+    </bean>
+
+    <!-- 创建SqlSessionFactory -->
+    <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+        <property name="typeAliasesPackage" value="cn.appsys.pojo"></property>
+    </bean>
+    <!-- 配置扫描Mapper 将sqlSessionFactory配置进去-->
+    <bean name="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="cn.appsys.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+</beans>
